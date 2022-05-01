@@ -5,7 +5,7 @@ public class Quest1Client {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		char[] input = {'[', '(', '(', '{', '}', ')', ')', ']', '['};
+		char[] input = {'[', '(', '(', '{', '}', ')', ')', ']'};
 		
 		BalancingBrackets bb = new BalancingBrackets();
 		

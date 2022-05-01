@@ -7,8 +7,8 @@ public class Quest2Client {
 		
 		FindSumPair fsp = new FindSumPair();
 		
-		int[] input = {23, 34, 24, 14, 5, 62};
-		int sum = 36;
+		int[] input = {23, 34, 24, 14, 15, 62, 61};
+		int sum = 76;
 		
 		for(int i=0; i<input.length;i++) {
 			fsp.insert(input[i]);
@@ -18,9 +18,11 @@ public class Quest2Client {
 		
 		fsp.inorderList();
 		
-		fsp.findPair(sum);
+		System.out.println("By Two pointers method");
+		fsp.findPairByTwoPointers(sum);
 		
-		//fsp.recursion(sum);
+		System.out.println("By set method");
+		fsp.findPairByCompliment(sum);
 		
 		
 	}

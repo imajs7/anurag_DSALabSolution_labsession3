@@ -1,6 +1,8 @@
 package quest2;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class FindSumPair {
 	
@@ -78,44 +80,59 @@ public class FindSumPair {
 		return this.arr.get(index);
 	}
 	
-	public void findPair(int sum) {
-		findPair(0, this.arr.size() - 1, sum);
+	public void findPairByTwoPointers(int sum) {
+		findPairByTwoPointers(0, this.arr.size() - 1, sum);
 	}
 	
-	private void findPair(int start, int end, int sum) {
+	private void findPairByTwoPointers(int start, int end, int sum) {
+		
+		boolean flag = false;
+		
 		while(start < end) {
 			if(this.arr.get(start) + this.arr.get(end) == sum) {
 				System.out.println(this.arr.get(start) + ", " + this.arr.get(end));
-				return;
+				start++;
+				end--;
+				flag = true;
 			} else if(this.arr.get(start) + this.arr.get(end) < sum) {
 				start++;
 			} else {
 				end--;
 			}			
 		}
-		System.out.println("Not found");
+		
+		if(!flag)
+			System.out.println("Not found");
+		
 	}
 	
 	/* ----------------------------*/
-	public void recursion(int sum) {
-		recursion(this.root, sum);
+	public void findPairByCompliment(int sum) {
+		Set<Integer> set = new HashSet<Integer>();
+		boolean flag = false;
+		flag = findPairByCompliment(this.root, sum, set, flag);		
+		
+		if(!flag)
+			System.out.println("Not found");
 	}
 	
-	private int recursion(Node node, int sum) {
+	private boolean findPairByCompliment(Node node, int sum, Set<Integer> set, boolean flag) {
+		
 		if(node == null)
-			return 0;
+			return flag;
 		
-		if(recursion(node.left, sum) + node.data == sum) {
-			System.out.println("Sum = " + sum);
-			System.out.println("Pair is: (" + node.data + ", " + node.left.data + ")");
-		}
-
-		if(recursion(node.right, sum) + node.data == sum) {
-			System.out.println("Sum = " + sum);
-			System.out.println("Pair is: (" + node.data + ", " + node.right.data + ")");
+		int comp = sum - node.data;
+		set.add(node.data);
+		
+		if( set.contains(comp) ) {
+			System.out.println(comp + " " + node.data);
+			flag = true;
 		}
 		
-		return node.data;
+		flag = findPairByCompliment(node.left, sum, set, flag);
+		flag = findPairByCompliment(node.right, sum, set, flag);
+		
+		return flag;
 		
 	}
 
