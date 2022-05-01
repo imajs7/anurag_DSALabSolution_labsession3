@@ -5,33 +5,19 @@ public class Quest1Client {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		char[] input = {'[', '(', '(', '{', '}', ')', ')', ']'};
+		String input = "";
 		
 		BalancingBrackets bb = new BalancingBrackets();
 		
-		for(int i = 0; i < input.length; i++) {
-			
-			if(input[i] == '(' || input[i] == '{' || input[i] == '[') {
-				
-				bb.push(input[i]);
-				
-			} else if(input[i] == ')' || input[i] == '}' || input[i] == ']') {
-				
-				if( input[i] == bb.reverse(bb.peek()) ) {
-					bb.pop();
-				} else {
-					System.out.println("Unbalanced");
-					return;
-				}
-				
-			}
-			
-		}
+		boolean flag = false;
 		
-		if( bb.isEmpty() )
-			System.out.println("Balanced");
+		
+		flag = bb.checkingBalance(input);
+		
+		if(flag)
+			System.out.println("The Brackets are Balanced");
 		else
-			System.out.println("Unbalanced");
+			System.out.println("The Brackets are Unbalanced");
 
 	}
 
