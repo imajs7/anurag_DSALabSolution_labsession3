@@ -90,7 +90,7 @@ public class FindSumPair {
 		
 		while(start < end) {
 			if(this.arr.get(start) + this.arr.get(end) == sum) {
-				System.out.println(this.arr.get(start) + ", " + this.arr.get(end));
+				System.out.println("Pair : (" + this.arr.get(start) + ", " + this.arr.get(end) + ")");
 				start++;
 				end--;
 				flag = true;
@@ -125,7 +125,7 @@ public class FindSumPair {
 		set.add(node.data);
 		
 		if( set.contains(comp) ) {
-			System.out.println(comp + " " + node.data);
+			System.out.println("Pair : (" + comp + ", " + node.data + ")");
 			flag = true;
 		}
 		

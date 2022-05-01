@@ -14,14 +14,14 @@ public class Quest2Client {
 			fsp.insert(input[i]);
 		}
 		
-		fsp.display();
+		//fsp.display();
 		
 		fsp.inorderList();
 		
 		System.out.println("By Two pointers method");
 		fsp.findPairByTwoPointers(sum);
 		
-		System.out.println("By set method");
+		System.out.println("By Finding Compliment method");
 		fsp.findPairByCompliment(sum);
 		
 		
